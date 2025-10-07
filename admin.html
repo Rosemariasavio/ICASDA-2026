@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Dashboard — ICASDAMR 2026</title>
+  <style>
+    :root {
+      --accent: #0b63c6;
+      --accent-hover: #1e7be3;
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text-primary: #0a3a72;
+      --text-muted: #555555;
+      --border: #dfe3eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-align: center;
+      color: var(--accent);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: var(--card);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) td {
+      background: #f0f6ff;
+    }
+
+    tr:hover td {
+      background: #e3efff;
+    }
+
+    .error {
+      text-align: center;
+      margin-top: 2rem;
+      font-weight: bold;
+      color: crimson;
+    }
+
+    .delete-btn {
+      background: crimson;
+      color: #fff;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background 0.3s;
+    }
+
+    .delete-btn:hover {
+      background: darkred;
+    }
+  </style>
+</head>
+<body>
+  <h1>ICASDAMR 2026 — Admin Dashboard</h1>
+  <table id="regTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Affiliation</th>
+        <th>Category</th>
+        <th>Presenting</th>
+        <th>Paper Title</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div id="error" class="error"></div>
+
+  <script>
+    async function loadRegs() {
+      try {
+        const res = await fetch("/admin/registrations"); // relative URL
+        if (!res.ok) {
+          document.getElementById("error").textContent = "❌ Failed to load registrations.";
+          return;
+        }
+        const data = await res.json();
+        const tbody = document.querySelector("tbody");
+        tbody.innerHTML = "";
+
+        if (data.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;">No registrations yet.</td></tr>`;
+          return;
+        }
+
+        data.forEach(r => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${r.name}</td>
+            <td>${r.email}</td>
+            <td>${r.affiliation}</td>
+            <td>${r.category}</td>
+            <td>${r.presenting}</td>
+            <td>${r.paperTitle}</td>
+            <td><button class="delete-btn" onclick="deleteReg('${r.id}')">Delete</button></td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } catch (err) {
+        document.getElementById("error").textContent = "❌ Error loading registrations.";
+        console.error(err);
+      }
+    }
+
+    async function deleteReg(id) {
+      if (!confirm("Are you sure you want to delete this registration?")) return;
+      try {
+        const res = await fetch("/admin/registrations/" + id, { method: "DELETE" });
+        const out = await res.json();
+        alert(out.msg);
+        loadRegs(); // reload table after deletion
+      } catch (err) {
+        alert("❌ Error deleting registration.");
+      }
+    }
+
+    // Load registrations when page loads
+    window.onload = loadRegs;
+  </script>
+</body>
+</html>

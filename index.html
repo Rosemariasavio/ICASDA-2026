@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ICASDAMR 2026 — International Conference</title>
+  <style>
+    :root {
+      --primary: #1f3a5f;
+      --secondary: #c57b57;
+      --light: #f9f7f6;
+      --muted: #777;
+      --card-bg: linear-gradient(145deg, #80B9B1, #638872);
+      --radius: 12px;
+      --max-width: 1200px;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #f9f7f6, #e8ded5);
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #c8b7a6, #f9f7f6);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    header h1 { font-size: 2.2rem; color: var(--primary); }
+    header p { color: var(--muted); margin-top: 0.3rem; }
+    nav a {
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      color: var(--primary);
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--secondary); }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #e8ded5, #f9f7f6);
+      border-radius: var(--radius);
+    }
+    .hero h2 { margin-bottom: 1rem; font-size: 1.7rem; }
+    .btn {
+      display: inline-block;
+      margin: 0.3rem;
+      padding: 0.6rem 1.2rem;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: var(--secondary); }
+
+    /* Cards */
+    .card, .committee-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      color: #fff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover, .committee-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .card h3, .committee-card h3 { margin-top:0; text-align:center; }
+
+    /* Topic Cards */
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .topic-card {
+      background: rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .topic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    .topic-card h4 { margin-bottom: 0.5rem; }
+    .topic-card p { font-size: 0.95rem; }
+
+    /* Forms */
+    .reg-form input,
+    .reg-form select {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+    .form-msg { font-weight: bold; color: var(--secondary); }
+
+    /* Committee */
+    .committee-level {
+      margin-bottom: 2rem;
+    }
+    .members { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; }
+    .member { text-align:center; width:130px; }
+    .avatar { width:110px; height:110px; background:#fff; border-radius:50%; margin:0 auto 0.5rem; border:4px solid var(--primary); color: var(--primary); }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(90deg, #c8b7a6, #f9f7f6);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>ICASDAMR–2026</h1>
+      <p>Applied Statistics & Analytics for Multidisciplinary Innovation</p>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="call_for_papers.html">Call for Papers</a>
+      <a href="#committee">Committee</a>
+      <a href="#register">Registration</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>International Conference on Applied Statistics, Data Analytics, and Multidisciplinary Research</h2>
+      <p><strong>12–13 February 2026</strong></p>
+      <a href="#register" class="btn">Register Now</a>
+      <a href="call_for_papers.html" class="btn">Call for Papers</a>
+    </section>
+
+    <!-- Info Cards -->
+    <!-- Detailed University & Department Info -->
+
+<div class="card">
+  <h3>Kristu Jayanti (Deemed to be University)</h3>
+  <p>Kristu Jayanti (Deemed to be University) has been a beacon of learning and innovation since its inception in 1999 as an affiliated institution under Bangalore University. The Institution is managed by the Christian Missionaries belonging to the order of the Carmelites of Mary Immaculate (CMI), St. Joseph Province, Kottayam, Kerala. Marking a significant milestone in its journey, Kristu Jayanti attained the ‘autonomous’ status in the year 2013. As per the notification dated July 08, 2025, vide letter No. 9-13/2025 - U.3(A), Kristu Jayanti has been conferred the status of Deemed to be University under section 3 of UGC Act, 1956, by the Department of Higher Education, Ministry of Education, Government of India under General Category.</p>
+  <p>Kristu Jayanti offers undergraduate and postgraduate programmes in Arts, Science, Management and Commerce, and integrated Law programmes. The institution was reaccredited with the highest grade 'A++' by the National Assessment and Accreditation Council (NAAC) in the Third Cycle of Accreditation in 2021. In the National Institutions Ranking Framework 2025, the institution has been ranked 34th and is one of the top 100 colleges in the country. Moreover, the programmes of the School of Management are internationally accredited by the Accreditation Council for Business Schools and Programs [ACBSP], USA. The Institution was accorded 'DBT Star College' status by the Department of Biotechnology, Ministry of Science & Technology, Government of India in 2020. There are 40 UG and 23 PG programmes.</p>
+</div>
+
+<div class="card">
+  <h3>Department of Statistics, Kristu Jayanti (Deemed to be University)</h3>
+  <p>Established in 1999, the Department of Statistics at Kristu Jayanti has been dedicated to imparting knowledge in both the theory and application of statistical techniques to undergraduate and postgraduate students across diverse disciplines. The Department actively organizes conferences, seminars, and workshops. Having successfully hosted three National Conferences in the past, the Department is now proud to present its first International Conference.</p>
+</div>
+
+<div class="card">
+  <h3>School of Mathematics and Statistics, Mahatma Gandhi University</h3>
+  <p>Established in 2020 at Mahatma Gandhi University, Kottayam, Kerala, the School of Mathematics and Statistics is a vibrant academic unit committed to the advancement of mathematical sciences, statistical methodologies, and their diverse applications. It nurtures analytical thinking and problem-solving skills, equipping students for a wide spectrum of professional careers and higher academic pursuits. The School actively organizes seminars, workshops, and conferences, creating a platform for students and faculty to interact with eminent scholars and practitioners.</p>
+</div>
+
+<div class="card">
+  <h3>Department of Statistics, Bangalore University</h3>
+  <p>Established in 1968 at Bangalore University, Bengaluru, the Department of Statistics commenced with the B.Sc. (Hons.) programme and expanded in 1969 with the M.Sc. programme. The Department integrates theoretical and applied dimensions of Statistics, offering M.Sc. and Ph.D. programmes. It actively collaborates with statistical organizations, R&D establishments, industries, and other academic institutions, advancing statistical knowledge and applications across diverse fields.</p>
+</div>
+
+<div class="card">
+  <h3>Preamble</h3>
+  <p>The International Conference on Applied Statistics, Data Analytics, and Multidisciplinary Research (ICASDAMR–2026), to be held on 12th and 13th February 2026, serves as a platform for academicians, researchers, professionals, and students to share insights and advancements in statistical science and data analytics. Organized by the Department of Statistics, Kristu Jayanti (Deemed to be University), the conference aims to foster interdisciplinary collaboration, promote innovative research, and highlight the vital role of data-driven approaches in addressing global challenges.</p>
+</div>
+
+
+    <div class="card">
+      <h3>Publication Info</h3>
+      <p>Papers accepted after presentation and peer review will be published in journals (TBD). Plagiarism leads to rejection.</p>
+    </div>
+
+    <div class="card" style="text-align: center;">
+      <h3>Important Dates </h3>
+      <ul>
+        <li>Full Paper Submission: Jan 15, 2026</li>
+        <li>Acceptance Notification: Jan 22, 2026</li>
+        <li>Registration & Payment: Feb 02, 2026</li>
+        <li>Conference: Feb 12–13, 2026</li>
+      </ul>
+    </div>
+
+    <!-- Registration -->
+    <div class="card" id="register">
+      <h3>Registration Details</h3>
+      <ul>
+        <li>Under/Post graduate students: ₹700 | Paper: ₹1000</li>
+        <li>Research Scholars: ₹700 | Paper: ₹1000</li>
+        <li>Academicians: ₹1000 | Paper: ₹1300</li>
+        <li>Industry participants: ₹1000 | Paper: ₹1300</li>
+        <li>International Delegates: Free | Paper: USD 50</li>
+        <li>Accommodation (Twin A/C): ₹1100/person/day + GST</li>
+        <li>Dormitory (Non-A/C): ₹100/person/day + GST</li>
+      </ul>
+      <form class="reg-form" id="regForm" action="/register" method="POST">
+        <input name="name" placeholder="Name" required>
+        <input name="email" placeholder="Email" type="email" required>
+        <input name="affiliation" placeholder="Affiliation">
+        <select name="category">
+          <option>Student</option>
+          <option>Research Scholar</option>
+          <option>Academic</option>
+          <option>Industry</option>
+          <option>International</option>
+        </select>
+        <select name="presenting">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+        <input name="paperTitle" placeholder="Paper Title">
+        <button class="btn" type="submit">Submit</button>
+      </form>
+      <div id="formMsg" class="form-msg"></div>
+    </div>
+
+    <!-- Committee Section -->
+    <section id="committee" class="container">
+      <h2 style="text-align:center; margin-bottom:2rem;">Organizing Committee</h2>
+      <div class="committee-card">
+        <!-- Example: Chief Patron -->
+        <div class="committee-level">
+          <h3>Chief Patron</h3>
+          <div class="members">
+            <div class="member">
+              <div class="avatar"></div>
+              <p>Fr. Dr. Augustine George CMI</p>
+              <p>Vice Chancellor</p>
+            </div>
+          </div>
+        </div>
+        <!-- Add other committee levels similarly -->
+         <!-- Patrons -->
+    <div class="committee-level">
+      <h3>Patrons</h3>
+      <div class="members">
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Fr. Dr. Lijo P Thomas CMI</p>
+          <p>Pro-Vice Chancellor</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Dr. Aloysius Edward</p>
+          <p>Registrar In-charge</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Fr. Emmanuel P J CMI</p>
+          <p>Director, Law</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Fr. Som Zacharia CMI</p>
+          <p>Planning & Infrastructure</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Fr. Jais V Thomas CMI</p>
+          <p>Finance Officer</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Fr. Joshy Mathew CMI</p>
+          <p>CHRO & Director, HSS</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Fr. Deepu Joy CMI</p>
+          <p>Student Welfare</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Fr. Dr. Marialal Joseph CMI</p>
+          <p>R&D Director</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Dr. Calistus Jude A L</p>
+          <p>Dean, Academics</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chief Conveners -->
+    <div class="committee-level">
+      <h3>Chief Conveners</h3>
+      <div class="members">
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Dr. Kumar</p>
+          <p>Dean, Computation & Physical Sciences</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Dr. Liji George</p>
+          <p>Head, Physical Sciences</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Dr. Parameshwar V Pandit</p>
+          <p>Senior Professor, Statistics, Bangalore Univ.</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Dr. K.K. Jose</p>
+          <p>Director, Maths & Stats, Mahatma Gandhi Univ.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conference Convener -->
+    <div class="committee-level">
+      <h3>Conference Convener</h3>
+      <div class="members">
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Dr. Yuvaraj V</p>
+          <p>Department of Statistics</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advisory Committee -->
+    <div class="committee-level">
+      <h3>Advisory Committee</h3>
+      <div class="members">
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Placeholder Name</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
+          <p>Placeholder Name</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </section>
+
+    <div class="card" id="contact">
+      <h3>Contact</h3>
+      <p>Email: statsconference@kristujayanti.com</p>
+    </div>
+
+  </main>
+
+  <footer>&copy; ICASDAMR–2026</footer>
+
+  <script>
+    const form = document.getElementById("regForm");
+    const msg = document.getElementById("formMsg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      try {
+        const res = await fetch("/register", {
+          method: "POST",
+          headers: {"Content-Type":"application/json"},
+          body: JSON.stringify(data)
+        });
+        const out = await res.json();
+        msg.textContent = out.msg;
+        if(out.success) form.reset();
+      } catch {
+        msg.textContent = "❌ Error submitting form.";
+      }
+    });
+  </script>
+</body>
+</html>
